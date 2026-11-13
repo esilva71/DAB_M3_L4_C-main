@@ -10,7 +10,11 @@ const connection = {
   port: process.env.DB_PORT,
   host: process.env.HOST,
   dialect: process.env.DIALECT,
-  dialectmodel: process.env.DIALECTMODEL,
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  }
 };
 const sequelize = new Sequelize(connection);
 const db = {}
